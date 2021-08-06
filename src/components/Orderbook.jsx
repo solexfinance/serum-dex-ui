@@ -9,39 +9,18 @@ import usePrevious from '../utils/usePrevious';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
 const Title = styled.div`
+  font-weight: 600;
   color: rgba(255, 255, 255, 1);
 `;
 
 const SizeTitle = styled(Row)`
   padding: 20px 0 14px;
-  color: #434a59;
+  color: #b7bdc6;
 `;
 
 const MarkPriceTitle = styled(Row)`
   padding: 20px 0 14px;
   font-weight: 700;
-`;
-
-const Line = styled.div`
-  text-align: right;
-  float: right;
-  height: 100%;
-  ${(props) =>
-    props['data-width'] &&
-    css`
-      width: ${props['data-width']};
-    `}
-  ${(props) =>
-    props['data-bgcolor'] &&
-    css`
-      background-color: ${props['data-bgcolor']};
-    `}
-`;
-
-const Price = styled.div`
-  position: absolute;
-  right: 5px;
-  color: white;
 `;
 
 export default function Orderbook({ smallScreen, depth = 7, onPrice, onSize }) {
@@ -113,11 +92,14 @@ export default function Orderbook({ smallScreen, depth = 7, onPrice, onSize }) {
     >
       <Title>Orderbook</Title>
       <SizeTitle>
-        <Col span={12} style={{ textAlign: 'left' }}>
-          Size ({baseCurrency})
-        </Col>
-        <Col span={12} style={{ textAlign: 'right' }}>
+        <Col span={8} style={{ textAlign: 'left' }}>
           Price ({quoteCurrency})
+        </Col>
+        <Col span={8} style={{ textAlign: 'right' }}>
+          Amount ({baseCurrency})
+        </Col>
+        <Col span={8} style={{ textAlign: 'right' }}>
+          Total
         </Col>
       </SizeTitle>
       {orderbookData?.asks.map(({ price, size, sizePercent }) => (
@@ -178,19 +160,19 @@ const OrderbookRow = React.memo(
 
     return (
       <Row ref={element} style={{ marginBottom: 1 }} onClick={onSizeClick}>
-        <Col span={12} style={{ textAlign: 'left' }}>
+        <Col span={8} style={{ textAlign: 'left' }}>
+          <span
+            style={{ color: side === 'buy' ? 'green' : 'red' }}
+            onClick={onPriceClick}
+          >
+            {formattedPrice}
+          </span>
+        </Col>
+        <Col span={8} style={{ textAlign: 'right' }}>
           {formattedSize}
         </Col>
-        <Col span={12} style={{ textAlign: 'right' }}>
-          <Line
-            data-width={sizePercent + '%'}
-            data-bgcolor={
-              side === 'buy'
-                ? 'rgba(65, 199, 122, 0.6)'
-                : 'rgba(242, 60, 105, 0.6)'
-            }
-          />
-          <Price onClick={onPriceClick}>{formattedPrice}</Price>
+        <Col span={8} style={{ textAlign: 'right' }}>
+          {Math.round(formattedPrice * formattedSize * 1000) / 1000}
         </Col>
       </Row>
     );
@@ -217,15 +199,15 @@ const MarkPriceComponent = React.memo(
       markPrice.toFixed(getDecimalCount(market.tickSize));
 
     return (
-      <MarkPriceTitle justify="center">
+      <MarkPriceTitle>
         <Col style={{ color: markPriceColor }}>
+          {formattedMarkPrice || '----'}
           {markPrice > previousMarkPrice && (
-            <ArrowUpOutlined style={{ marginRight: 5 }} />
+            <ArrowUpOutlined style={{ marginLeft: 3 }} />
           )}
           {markPrice < previousMarkPrice && (
-            <ArrowDownOutlined style={{ marginRight: 5 }} />
+            <ArrowDownOutlined style={{ marginLeft: 3 }} />
           )}
-          {formattedMarkPrice || '----'}
         </Col>
       </MarkPriceTitle>
     );
