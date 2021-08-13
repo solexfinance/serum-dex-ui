@@ -162,7 +162,7 @@ const OrderbookRow = React.memo(
       <Row ref={element} style={{ marginBottom: 1 }} onClick={onSizeClick}>
         <Col span={8} style={{ textAlign: 'left' }}>
           <span
-            style={{ color: side === 'buy' ? 'green' : 'red' }}
+            style={{ color: side === 'buy' ? '#41C77A' : '#F23B69' }}
             onClick={onPriceClick}
           >
             {formattedPrice}
