@@ -1,6 +1,6 @@
 import { Col, Row } from 'antd';
 import React, { useRef, useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useMarket, useOrderbook, useMarkPrice } from '../utils/markets';
 import { isEqual, getDecimalCount } from '../utils/utils';
 import { useInterval } from '../utils/useInterval';
