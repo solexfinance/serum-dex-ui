@@ -1,9 +1,5 @@
-import {
-  InfoCircleOutlined,
-  PlusCircleOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
-import { Button, Col, Menu, Popover, Row, Select } from 'antd';
+import { SettingOutlined } from '@ant-design/icons';
+import { Button, Menu, Popover } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.svg';
@@ -16,7 +12,6 @@ import { EndpointInfo } from '../utils/types';
 import { notify } from '../utils/notifications';
 import { Connection } from '@solana/web3.js';
 import WalletConnect from './WalletConnect';
-import AppSearch from './AppSearch';
 import { getTradePageUrl } from '../utils/markets';
 
 const Wrapper = styled.div`
@@ -42,7 +37,6 @@ const LogoWrapper = styled.div`
 export default function TopBar() {
   const { connected, wallet } = useWallet();
   const {
-    endpoint,
     endpointInfo,
     setEndpoint,
     availableEndpoints,
@@ -52,7 +46,6 @@ export default function TopBar() {
   const [testingConnection, setTestingConnection] = useState(false);
   const location = useLocation();
   const history = useHistory();
-  const [searchFocussed, setSearchFocussed] = useState(false);
 
   const handleClick = useCallback(
     (e) => {
@@ -147,57 +140,6 @@ export default function TopBar() {
             TRADE
           </Menu.Item>
         </Menu>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            paddingRight: 5,
-          }}
-        >
-          <AppSearch
-            onFocus={() => setSearchFocussed(true)}
-            onBlur={() => setSearchFocussed(false)}
-            focussed={searchFocussed}
-            width={searchFocussed ? '350px' : '35px'}
-          />
-        </div>
-        <div>
-          <Row
-            align="middle"
-            style={{ paddingLeft: 5, paddingRight: 5 }}
-            gutter={16}
-          >
-            <Col>
-              <PlusCircleOutlined
-                style={{ color: '#2abdd2' }}
-                onClick={() => setAddEndpointVisible(true)}
-              />
-            </Col>
-            <Col>
-              <Popover
-                content={endpoint}
-                placement="bottomRight"
-                title="URL"
-                trigger="hover"
-              >
-                <InfoCircleOutlined style={{ color: '#2abdd2' }} />
-              </Popover>
-            </Col>
-            <Col>
-              <Select
-                onSelect={setEndpoint}
-                value={endpoint}
-                style={{ marginRight: 8, width: '150px' }}
-              >
-                {availableEndpoints.map(({ name, endpoint }) => (
-                  <Select.Option value={endpoint} key={endpoint}>
-                    {name}
-                  </Select.Option>
-                ))}
-              </Select>
-            </Col>
-          </Row>
-        </div>
         {connected && (
           <div>
             <Popover
