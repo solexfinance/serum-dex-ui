@@ -1,5 +1,5 @@
 import { SettingOutlined } from '@ant-design/icons';
-import { Button, Menu, Popover } from 'antd';
+import { Button, Menu, Dropdown } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.svg';
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding: 0px 30px;
+  padding: 0px 16px;
   flex-wrap: wrap;
 `;
 const LogoWrapper = styled.div`
@@ -111,6 +111,17 @@ export default function TopBar() {
     ? location.pathname
     : getTradePageUrl();
 
+  const menu = (
+    <Menu>
+      <Menu.Item key="0">
+        <Settings autoApprove={wallet?.autoApprove} />
+      </Menu.Item>
+      <Menu.Item key="1">The setting Lorem ipsum dolor sit amet.</Menu.Item>
+      <Menu.Item key="2">Color setting Lorem ipsum dolor sit amet.</Menu.Item>
+      <Menu.Item key="3">Layout setting Lorem ipsum dolor sit amet.</Menu.Item>
+    </Menu>
+  );
+
   return (
     <>
       <CustomClusterEndpointDialog
@@ -140,24 +151,19 @@ export default function TopBar() {
             TRADE
           </Menu.Item>
         </Menu>
-        {connected && (
-          <div>
-            <Popover
-              content={<Settings autoApprove={wallet?.autoApprove} />}
-              placement="bottomRight"
-              title="Settings"
-              trigger="click"
-            >
-              <Button style={{ marginRight: 8 }}>
-                <SettingOutlined />
-                Settings
-              </Button>
-            </Popover>
-          </div>
-        )}
         <div>
           <WalletConnect />
         </div>
+        {connected && (
+          <div>
+            <Dropdown overlay={menu} placement="bottomRight">
+              <Button style={{ marginLeft: '8px' }}>
+                <SettingOutlined />
+                Settings
+              </Button>
+            </Dropdown>
+          </div>
+        )}
       </Wrapper>
     </>
   );
