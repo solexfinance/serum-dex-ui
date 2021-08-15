@@ -14,13 +14,18 @@ import { Connection } from '@solana/web3.js';
 import WalletConnect from './WalletConnect';
 import { getTradePageUrl } from '../utils/markets';
 
+// #161a1e global bg
+// #22930 border
+// #161a1e header bg
+
 const Wrapper = styled.div`
-  background-color: #0d1017;
+  background-color: #181a20;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   padding: 0px 16px;
   flex-wrap: wrap;
+  border-bottom: 1px solid #252930;
 `;
 const LogoWrapper = styled.div`
   display: flex;

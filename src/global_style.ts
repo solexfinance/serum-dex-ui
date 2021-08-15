@@ -1,8 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
+// #161a1e global bg
+// #22930 border
+// #161a1e header bg
+
 export const GlobalStyle = createGlobalStyle`
 html,body{
-  background: #11161D;
+  background: #161a1e;
 }
 input[type=number]::-webkit-inner-spin-button {
   opacity: 0;
@@ -46,7 +50,7 @@ input[type=number]:focus::-webkit-inner-spin-button {
   background: #273043;
 }
 .ant-table-tbody > tr > td {
-  border-bottom: 8px solid #1A2029;
+  border-bottom: 8px solid #161a1e;
 }
 .ant-table-container table > thead > tr:first-child th {
   border-bottom: none;
@@ -55,13 +59,13 @@ input[type=number]:focus::-webkit-inner-spin-button {
   border-top: 1px solid #434a59 !important;
 }
 .ant-layout {
-    background: #11161D
+    background: #161a1e;
   }
   .ant-table {
     background: #212734;
   }
   .ant-table-thead > tr > th {
-    background: #1A2029;
+    background: #161a1e;
   }
 .ant-select-item-option-content {
   img {
@@ -74,15 +78,15 @@ input[type=number]:focus::-webkit-inner-spin-button {
 
 @-webkit-keyframes highlight {
   from { background-color: #2abdd2;}
-  to {background-color: #1A2029;}
+  to {background-color: #161a1e;}
 }
 @-moz-keyframes highlight {
   from { background-color: #2abdd2;}
-  to {background-color: #1A2029;}
+  to {background-color: #161a1e;}
 }
 @-keyframes highlight {
   from { background-color: #2abdd2;}
-  to {background-color: #1A2029;}
+  to {background-color: #161a1e;}
 }
 .flash {
   -moz-animation: highlight 0.5s ease 0s 1 alternate ;
