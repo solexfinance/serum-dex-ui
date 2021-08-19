@@ -35,9 +35,14 @@ const Tip = styled.p`
 `;
 
 const ActionButton = styled(Button)`
-  color: #00fdbb;
-  background-color: #1e2026;
+  color: #eaecef;
+  background-color: #474d57;
   border-width: 0px;
+
+  &:hover {
+    color: #eaecef;
+    background-color: #474d57;
+  }
 `;
 
 export default function StandaloneBalancesDisplay() {

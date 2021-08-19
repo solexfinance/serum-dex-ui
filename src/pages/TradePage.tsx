@@ -202,7 +202,6 @@ function MarketSelector({
       size={'large'}
       style={{
         width: 180,
-        paddingRight: 24,
         marginRight: 24,
         fontSize: 20,
         fontWeight: 500,
