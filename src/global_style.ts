@@ -62,8 +62,11 @@ input[type=number]:focus::-webkit-inner-spin-button {
     background: #161a1e;
   }
   .ant-table {
-    background: #212734;
+    background: #1e2026;
   }
+  .ant-table-tbody > tr.ant-table-placeholder:hover > td {
+    background: #111417;
+  } 
   .ant-table-thead > tr > th {
     background: #161a1e;
   }
@@ -73,7 +76,7 @@ input[type=number]:focus::-webkit-inner-spin-button {
   }
 }
 .ant-modal-content {
-  background-color: #212734;
+  background-color: #1e2026;
 }
 
 @-webkit-keyframes highlight {
