@@ -171,11 +171,16 @@ export default function TopBar() {
           <WalletConnect />
         </div>
         {connected && (
-          <div>
+          <div
+            style={{
+              marginLeft: '16px',
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
             <Dropdown overlay={menu} placement="bottomRight">
-              <Button style={{ marginLeft: '8px' }}>
-                <SettingOutlined />
-                Settings
+              <Button style={{ height: '100%', border: 'unset' }}>
+                <SettingOutlined style={{ fontSize: 20 }} />
               </Button>
             </Dropdown>
           </div>
