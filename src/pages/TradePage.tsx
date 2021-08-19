@@ -311,7 +311,13 @@ const RenderNormal = ({
       }}
     >
       <Col flex="auto" style={{ height: '50vh' }}>
-        <Row align="middle" gutter={16}>
+        <Row
+          align="middle"
+          style={{
+            padding: '10px 0 10px 16px',
+            borderBottom: '1px solid #252930',
+          }}
+        >
           <Col>
             <MarketSelector
               markets={markets}
@@ -392,8 +398,10 @@ const RenderSmall = ({
     <>
       <Row
         align="middle"
-        style={{ paddingLeft: 5, paddingRight: 5 }}
-        gutter={16}
+        style={{
+          padding: '10px 0 10px 16px',
+          borderBottom: '1px solid #252930',
+        }}
       >
         <Col>
           <MarketSelector
@@ -489,8 +497,10 @@ const RenderSmaller = ({
     <>
       <Row
         align="middle"
-        style={{ paddingLeft: 5, paddingRight: 5 }}
-        gutter={16}
+        style={{
+          padding: '10px 0 10px 16px',
+          borderBottom: '1px solid #252930',
+        }}
       >
         <Col>
           <MarketSelector
