@@ -130,7 +130,7 @@ export default function TopBar() {
   const menu = (
     <Menu>
       <Menu.Item key="0">
-        <Settings autoApprove={wallet?.autoApprove} />
+        {connected ? <Settings autoApprove={wallet?.autoApprove} /> : null}
       </Menu.Item>
       <Menu.Item key="1">The setting Lorem ipsum dolor sit amet.</Menu.Item>
       <Menu.Item key="2">Color setting Lorem ipsum dolor sit amet.</Menu.Item>
@@ -179,21 +179,19 @@ export default function TopBar() {
         <div>
           <WalletConnect />
         </div>
-        {connected && (
-          <div
-            style={{
-              marginLeft: '16px',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            <Dropdown overlay={menu} placement="bottomRight">
-              <ConfigButton>
-                <SettingOutlined style={{ fontSize: 20 }} />
-              </ConfigButton>
-            </Dropdown>
-          </div>
-        )}
+        <div
+          style={{
+            marginLeft: '16px',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <Dropdown overlay={menu} placement="bottomRight">
+            <ConfigButton>
+              <SettingOutlined style={{ fontSize: 20 }} />
+            </ConfigButton>
+          </Dropdown>
+        </div>
       </Wrapper>
     </>
   );
