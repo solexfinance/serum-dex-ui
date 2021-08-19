@@ -27,10 +27,12 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   border-bottom: 1px solid #252930;
 `;
+
 const LogoWrapper = styled.div`
   display: flex;
+  margin-right: 20px;
   align-items: center;
-  color: #2abdd2;
+  color: #00febd;
   font-weight: bold;
   cursor: pointer;
   img {
@@ -138,7 +140,7 @@ export default function TopBar() {
       <Wrapper>
         <LogoWrapper onClick={() => history.push(tradePageUrl)}>
           <img src={logo} alt="" />
-          {'SERUM'}
+          {'EXCHANGE NAME'}
         </LogoWrapper>
         <Menu
           mode="horizontal"
@@ -152,8 +154,17 @@ export default function TopBar() {
             flex: 1,
           }}
         >
-          <Menu.Item key={tradePageUrl} style={{ margin: '0 10px 0 20px' }}>
-            TRADE
+          <Menu.Item
+            key={tradePageUrl}
+            style={{ margin: '0 20px', borderBottom: 'unset' }}
+          >
+            Trade
+          </Menu.Item>
+          <Menu.Item
+            key={'/aaa'}
+            style={{ margin: '0 20px', borderBottom: 'unset' }}
+          >
+            Other
           </Menu.Item>
         </Menu>
         <div>
