@@ -32,7 +32,7 @@ const LogoWrapper = styled.div`
   display: flex;
   margin-right: 20px;
   align-items: center;
-  color: #00febd;
+  color: #00fdbb;
   font-weight: bold;
   cursor: pointer;
   img {

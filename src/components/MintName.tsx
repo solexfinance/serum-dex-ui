@@ -33,7 +33,7 @@ export function MintName({
             title="Token mint"
             trigger="hover"
           >
-            <InfoCircleOutlined style={{ color: '#00febd' }} />
+            <InfoCircleOutlined style={{ color: '#00fdbb' }} />
           </Popover>
         </>
       ) : null}

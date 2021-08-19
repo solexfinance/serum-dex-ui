@@ -343,13 +343,13 @@ const RenderNormal = ({
                 title="Market address"
                 trigger="click"
               >
-                <InfoCircleOutlined style={{ color: '#00febd' }} />
+                <InfoCircleOutlined style={{ color: '#00fdbb' }} />
               </Popover>
             </Col>
           ) : null}
           <Col style={{ marginRight: 24 }}>
             <PlusCircleOutlined
-              style={{ color: '#00febd' }}
+              style={{ color: '#00fdbb' }}
               onClick={() => setAddMarketVisible(true)}
             />
           </Col>
@@ -428,13 +428,13 @@ const RenderSmall = ({
               title="Market address"
               trigger="click"
             >
-              <InfoCircleOutlined style={{ color: '#00febd' }} />
+              <InfoCircleOutlined style={{ color: '#00fdbb' }} />
             </Popover>
           </Col>
         ) : null}
         <Col>
           <PlusCircleOutlined
-            style={{ color: '#00febd' }}
+            style={{ color: '#00fdbb' }}
             onClick={() => setAddMarketVisible(true)}
           />
         </Col>
@@ -527,13 +527,13 @@ const RenderSmaller = ({
               title="Market address"
               trigger="click"
             >
-              <InfoCircleOutlined style={{ color: '#00febd' }} />
+              <InfoCircleOutlined style={{ color: '#00fdbb' }} />
             </Popover>
           </Col>
         ) : null}
         <Col>
           <PlusCircleOutlined
-            style={{ color: '#00febd' }}
+            style={{ color: '#00fdbb' }}
             onClick={() => setAddMarketVisible(true)}
           />
         </Col>
