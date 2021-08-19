@@ -41,6 +41,15 @@ const LogoWrapper = styled.div`
   }
 `;
 
+const ConfigButton = styled(Button)`
+  height: 100%;
+  border: unset;
+
+  &:hover {
+    color: #00fdbb;
+  }
+`;
+
 export default function TopBar() {
   const { connected, wallet } = useWallet();
   const {
@@ -179,9 +188,9 @@ export default function TopBar() {
             }}
           >
             <Dropdown overlay={menu} placement="bottomRight">
-              <Button style={{ height: '100%', border: 'unset' }}>
+              <ConfigButton>
                 <SettingOutlined style={{ fontSize: 20 }} />
-              </Button>
+              </ConfigButton>
             </Dropdown>
           </div>
         )}
