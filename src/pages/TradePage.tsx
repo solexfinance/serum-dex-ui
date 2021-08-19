@@ -198,12 +198,20 @@ function MarketSelector({
   return (
     <Select
       showSearch
+      bordered={false}
       size={'large'}
-      style={{ width: 200 }}
+      style={{
+        width: 180,
+        paddingRight: 24,
+        marginRight: 24,
+        fontSize: 20,
+        fontWeight: 500,
+        borderRight: '1px solid #252930',
+      }}
       placeholder={placeholder || 'Select a market'}
       optionFilterProp="name"
       onSelect={onSetMarketAddress}
-      listHeight={400}
+      listHeight={320}
       value={selectedMarket}
       filterOption={(input, option) =>
         option?.name?.toLowerCase().indexOf(input.toLowerCase()) >= 0
@@ -328,7 +336,7 @@ const RenderNormal = ({
             />
           </Col>
           {market ? (
-            <Col>
+            <Col style={{ marginRight: 24 }}>
               <Popover
                 content={<LinkAddress address={market.publicKey.toBase58()} />}
                 placement="bottomRight"
@@ -339,7 +347,7 @@ const RenderNormal = ({
               </Popover>
             </Col>
           ) : null}
-          <Col>
+          <Col style={{ marginRight: 24 }}>
             <PlusCircleOutlined
               style={{ color: '#00febd' }}
               onClick={() => setAddMarketVisible(true)}
