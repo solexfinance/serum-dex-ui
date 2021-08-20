@@ -18,7 +18,7 @@ export default function FeesTable() {
           <Typography>{feeTier}</Typography>
           {row.index === 0 ? (
             <div style={{ marginLeft: 10 }}>
-              <Tag color={'#41C77A'} style={{ fontWeight: 700 }}>
+              <Tag color={'#0ecb81'} style={{ fontWeight: 700 }}>
                 Selected
               </Tag>
             </div>

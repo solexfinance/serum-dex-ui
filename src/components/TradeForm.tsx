@@ -1,5 +1,5 @@
-import {Button, Input, Radio, Slider, Switch} from 'antd';
-import React, {useEffect, useState} from 'react';
+import { Button, Input, Radio, Slider, Switch } from 'antd';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {
   useFeeDiscountKeys,
@@ -12,20 +12,24 @@ import {
   useSelectedQuoteCurrencyAccount,
   useSelectedQuoteCurrencyBalances,
 } from '../utils/markets';
-import {useWallet} from '../utils/wallet';
-import {notify} from '../utils/notifications';
-import {floorToDecimal, getDecimalCount, roundToDecimal,} from '../utils/utils';
-import {useSendConnection} from '../utils/connection';
+import { useWallet } from '../utils/wallet';
+import { notify } from '../utils/notifications';
+import {
+  floorToDecimal,
+  getDecimalCount,
+  roundToDecimal,
+} from '../utils/utils';
+import { useSendConnection } from '../utils/connection';
 import FloatingElement from './layout/FloatingElement';
-import {getUnixTs, placeOrder} from '../utils/send';
-import {SwitchChangeEventHandler} from 'antd/es/switch';
-import {refreshCache} from '../utils/fetch-loop';
+import { getUnixTs, placeOrder } from '../utils/send';
+import { SwitchChangeEventHandler } from 'antd/es/switch';
+import { refreshCache } from '../utils/fetch-loop';
 import tuple from 'immutable-tuple';
 
 const SellButton = styled(Button)`
   margin: 20px 0px 0px 0px;
-  background: #f23b69;
-  border-color: #f23b69;
+  background: #f6465d;
+  border-color: #f6465d;
 `;
 
 const BuyButton = styled(Button)`
@@ -302,8 +306,8 @@ export default function TradeForm({
             style={{
               width: '50%',
               textAlign: 'center',
-              background: side === 'sell' ? '#F23B69' : '',
-              borderColor: side === 'sell' ? '#F23B69' : '',
+              background: side === 'sell' ? '#f6465d' : '',
+              borderColor: side === 'sell' ? '#f6465d' : '',
             }}
           >
             SELL

@@ -11,8 +11,8 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { OrderWithMarketAndMarketName } from '../../utils/types';
 
 const CancelButton = styled(Button)`
-  color: #f23b69;
-  border: 1px solid #f23b69;
+  color: #f6465d;
+  border: 1px solid #f6465d;
 `;
 
 export default function OpenOrderTable({
@@ -79,7 +79,7 @@ export default function OpenOrderTable({
       key: 'side',
       render: (side) => (
         <Tag
-          color={side === 'buy' ? '#41C77A' : '#F23B69'}
+          color={side === 'buy' ? '#0ecb81' : '#f6465d'}
           style={{ fontWeight: 700 }}
         >
           {side.charAt(0).toUpperCase() + side.slice(1)}

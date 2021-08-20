@@ -94,12 +94,12 @@
 //       theme: defaultProps.theme === 'Dark' ? 'Dark' : 'Light',
 //       overrides: {
 //         ...savedProperties,
-//         'mainSeriesProperties.candleStyle.upColor': '#41C77A',
-//         'mainSeriesProperties.candleStyle.downColor': '#F23B69',
-//         'mainSeriesProperties.candleStyle.borderUpColor': '#41C77A',
-//         'mainSeriesProperties.candleStyle.borderDownColor': '#F23B69',
-//         'mainSeriesProperties.candleStyle.wickUpColor': '#41C77A',
-//         'mainSeriesProperties.candleStyle.wickDownColor': '#F23B69',
+//         'mainSeriesProperties.candleStyle.upColor': '#0ecb81',
+//         'mainSeriesProperties.candleStyle.downColor': '#f6465d',
+//         'mainSeriesProperties.candleStyle.borderUpColor': '#0ecb81',
+//         'mainSeriesProperties.candleStyle.borderDownColor': '#f6465d',
+//         'mainSeriesProperties.candleStyle.wickUpColor': '#0ecb81',
+//         'mainSeriesProperties.candleStyle.wickDownColor': '#f6465d',
 //       },
 //       // @ts-ignore
 //       save_load_adapter: saveLoadAdapter,

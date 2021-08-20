@@ -96,7 +96,7 @@ export default function Orderbook({ smallScreen, depth = 7, onPrice, onSize }) {
           Price ({quoteCurrency})
         </Col>
         <Col span={8} style={{ textAlign: 'right' }}>
-          Amount ({baseCurrency})
+          Size ({baseCurrency})
         </Col>
         <Col span={8} style={{ textAlign: 'right' }}>
           Total
@@ -162,7 +162,7 @@ const OrderbookRow = React.memo(
       <Row ref={element} style={{ marginBottom: 1 }} onClick={onSizeClick}>
         <Col span={8} style={{ textAlign: 'left' }}>
           <span
-            style={{ color: side === 'buy' ? '#41C77A' : '#F23B69' }}
+            style={{ color: side === 'buy' ? '#0ecb81' : '#f6465d' }}
             onClick={onPriceClick}
           >
             {formattedPrice}
@@ -188,9 +188,9 @@ const MarkPriceComponent = React.memo(
 
     let markPriceColor =
       markPrice > previousMarkPrice
-        ? '#41C77A'
+        ? '#0ecb81'
         : markPrice < previousMarkPrice
-        ? '#F23B69'
+        ? '#f6465d'
         : 'white';
 
     let formattedMarkPrice =

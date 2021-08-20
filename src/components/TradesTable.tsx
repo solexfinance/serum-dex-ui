@@ -55,7 +55,7 @@ export default function PublicTrades({ smallScreen }) {
               <Col
                 span={8}
                 style={{
-                  color: trade.side === 'buy' ? '#41C77A' : '#F23B69',
+                  color: trade.side === 'buy' ? '#0ecb81' : '#f6465d',
                 }}
               >
                 {market?.tickSize && !isNaN(trade.price)
