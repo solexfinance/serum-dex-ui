@@ -44,8 +44,12 @@ const LogoWrapper = styled.div`
 const ConfigButton = styled(Button)`
   height: 100%;
   border: unset;
+  display: flex;
+  align-items: center;
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus {
     color: #00fdbb;
   }
 `;
