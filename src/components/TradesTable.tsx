@@ -64,7 +64,7 @@ export default function PublicTrades({ smallScreen }) {
                     )
                   : trade.price}
               </Col>
-              <Col span={8} style={{ textAlign: 'right' }}>
+              <Col span={8} style={{ textAlign: 'right', color: '#b7bdc6' }}>
                 {market?.minOrderSize && !isNaN(trade.size)
                   ? Number(trade.size).toFixed(
                       getDecimalCount(market.minOrderSize),
