@@ -1,4 +1,4 @@
-import { Button, Input, Radio, Slider, Switch } from 'antd';
+import { Button, Radio, Slider, Switch } from 'antd';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {
@@ -26,18 +26,32 @@ import { SwitchChangeEventHandler } from 'antd/es/switch';
 import { refreshCache } from '../utils/fetch-loop';
 import tuple from 'immutable-tuple';
 
-const SellButton = styled(Button)`
-  margin: 20px 0px 0px 0px;
-  background: #f6465d;
-  border-color: #f6465d;
-  boder-radius: 4px;
+const BuyRadioButton = styled(Radio.Button)`
+  width: 50%;
+  text-align: center;
+  background: ${(props) => (props.side === 'buy' ? '#0ecb81 !important' : '')};
+  border-color: ${(props) =>
+    props.side === 'buy' ? '#0ecb81 !important' : ''};
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.85);
+  }
 `;
 
-const BuyButton = styled(Button)`
-  margin: 20px 0px 0px 0px;
-  background: #02bf76;
-  border-color: #02bf76;
-  boder-radius: 4px;
+const SellRadioButton = styled(Radio.Button)`
+  width: 50%;
+  text-align: center;
+  background: ${(props) => (props.side === 'sell' ? '#f6465d !important' : '')};
+  border-color: ${(props) =>
+    props.side === 'sell' ? '#f6465d !important' : ''};
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.85);
+  }
 `;
 
 const InputContainer = styled.div`
@@ -88,6 +102,20 @@ const Suffix = styled.div`
   margin: 0 8px;
   font-size: 14px;
   color: rgb(132, 142, 156);
+`;
+
+const SellButton = styled(Button)`
+  margin: 20px 0px 0px 0px;
+  background: #f6465d;
+  border-color: #f6465d;
+  boder-radius: 4px;
+`;
+
+const BuyButton = styled(Button)`
+  margin: 20px 0px 0px 0px;
+  background: #02bf76;
+  border-color: #02bf76;
+  boder-radius: 4px;
 `;
 
 const sliderMarks = {
@@ -342,32 +370,12 @@ export default function TradeForm({
             width: '100%',
           }}
         >
-          <Radio.Button
-            value="buy"
-            style={{
-              width: '50%',
-              textAlign: 'center',
-              backgroundColor: side === 'buy' ? '#0ecb81' : '',
-              borderColor: side === 'buy' ? '#0ecb81' : '',
-              borderTopLeftRadius: 4,
-              borderBottomLeftRadius: 4,
-            }}
-          >
+          <BuyRadioButton value="buy" side={side}>
             Buy {baseCurrency}
-          </Radio.Button>
-          <Radio.Button
-            value="sell"
-            style={{
-              width: '50%',
-              textAlign: 'center',
-              backgroundColor: side === 'sell' ? '#f6465d' : '',
-              borderColor: side === 'sell' ? '#f6465d' : '',
-              borderTopRightRadius: 4,
-              borderBottomRightRadius: 4,
-            }}
-          >
+          </BuyRadioButton>
+          <SellRadioButton value="sell" side={side}>
             Sell {baseCurrency}
-          </Radio.Button>
+          </SellRadioButton>
         </Radio.Group>
         <InputContainer>
           <Tag>Price</Tag>
