@@ -30,12 +30,64 @@ const SellButton = styled(Button)`
   margin: 20px 0px 0px 0px;
   background: #f6465d;
   border-color: #f6465d;
+  boder-radius: 4px;
 `;
 
 const BuyButton = styled(Button)`
   margin: 20px 0px 0px 0px;
   background: #02bf76;
   border-color: #02bf76;
+  boder-radius: 4px;
+`;
+
+const InputContainer = styled.div`
+  display: inline-flex;
+  margin-bottom: 12px;
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  line-height: 40px;
+  background-color: rgba(43, 47, 54, 0.9);
+  color: rgb(234, 236, 239);
+  border: 1px solid rgba(43, 47, 54, 0.8);
+`;
+
+const Tag = styled.div`
+  flex-shrink: 0;
+  margin-left: 8px;
+  min-width: 48px;
+  font-size: 14px;
+  color: rgb(183, 189, 198);
+`;
+
+const PriceInput = styled.input`
+  color: rgb(234, 236, 239);
+  font-size: 14px;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-align: right;
+  appearance: textfield;
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  outline: currentcolor none medium;
+  background-color: inherit;
+  opacity: 1;
+  border: medium none !important;
+  appearance: textfield !important;
+  line-height: 1.6;
+`;
+
+const Suffix = styled.div`
+  flex-shrink: 0;
+  margin: 0 8px;
+  font-size: 14px;
+  color: rgb(132, 142, 156);
 `;
 
 const sliderMarks = {
@@ -286,7 +338,7 @@ export default function TradeForm({
           value={side}
           buttonStyle="solid"
           style={{
-            marginBottom: 8,
+            marginBottom: 16,
             width: '100%',
           }}
         >
@@ -317,57 +369,65 @@ export default function TradeForm({
             Sell {baseCurrency}
           </Radio.Button>
         </Radio.Group>
-        <Input
-          style={{ textAlign: 'right', paddingBottom: 8 }}
-          addonBefore={<div style={{ width: '30px' }}>Price</div>}
-          suffix={
-            <span style={{ fontSize: 10, opacity: 0.5 }}>{quoteCurrency}</span>
-          }
-          value={price}
-          type="number"
-          step={market?.tickSize || 1}
-          onChange={(e) => setPrice(parseFloat(e.target.value))}
-        />
-        <Input.Group compact style={{ paddingBottom: 8 }}>
-          <Input
-            style={{ width: 'calc(50% + 30px)', textAlign: 'right' }}
-            addonBefore={<div style={{ width: '30px' }}>Size</div>}
-            suffix={
-              <span style={{ fontSize: 10, opacity: 0.5 }}>{baseCurrency}</span>
-            }
+        <InputContainer>
+          <Tag>Price</Tag>
+          <PriceInput
+            value={price}
+            type="number"
+            step={market?.tickSize || 1}
+            onChange={(e) => setPrice(parseFloat(e.target.value))}
+          />
+          <Suffix>{quoteCurrency}</Suffix>
+        </InputContainer>
+        <InputContainer>
+          <Tag>Size</Tag>
+          <PriceInput
             value={baseSize}
             type="number"
             step={market?.minOrderSize || 1}
             onChange={(e) => onSetBaseSize(parseFloat(e.target.value))}
           />
-          <Input
-            style={{ width: 'calc(50% - 30px)', textAlign: 'right' }}
-            suffix={
-              <span style={{ fontSize: 10, opacity: 0.5 }}>
-                {quoteCurrency}
-              </span>
-            }
-            value={quoteSize}
-            type="number"
-            step={market?.minOrderSize || 1}
-            onChange={(e) => onSetQuoteSize(parseFloat(e.target.value))}
-          />
-        </Input.Group>
+          <Suffix>{baseCurrency}</Suffix>
+        </InputContainer>
         <Slider
           value={sizeFraction}
           tipFormatter={(value) => `${value}%`}
           marks={sliderMarks}
           onChange={onSliderChange}
         />
-        <div style={{ paddingTop: 18 }}>
-          {'POST '}
+        <InputContainer style={{ marginTop: 16 }}>
+          <Tag>Total</Tag>
+          <PriceInput
+            value={quoteSize}
+            type="number"
+            step={market?.minOrderSize || 1}
+            onChange={(e) => onSetQuoteSize(parseFloat(e.target.value))}
+          />
+          <Suffix>{baseCurrency}</Suffix>
+        </InputContainer>
+
+        <div
+          style={{
+            padding: '9px 0',
+            borderTop: '1px solid rgb(37, 41, 48)',
+            borderBottom: '1px solid rgb(37, 41, 48)',
+            fontSize: 12,
+          }}
+        >
+          {'Post'}
           <Switch
             checked={postOnly}
             onChange={postOnChange}
-            style={{ marginRight: 40 }}
+            size="small"
+            style={{ marginLeft: 8, marginRight: 40 }}
           />
-          {'IOC '}
-          <Switch checked={ioc} onChange={iocOnChange} />
+          {'IOC'}
+          <Switch
+            checked={ioc}
+            onChange={iocOnChange}
+            size="small"
+            style={{ marginLeft: 8 }}
+          />
         </div>
       </div>
       {side === 'buy' ? (
