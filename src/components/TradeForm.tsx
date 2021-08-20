@@ -295,22 +295,26 @@ export default function TradeForm({
             style={{
               width: '50%',
               textAlign: 'center',
-              background: side === 'buy' ? '#02bf76' : '',
-              borderColor: side === 'buy' ? '#02bf76' : '',
+              backgroundColor: side === 'buy' ? '#0ecb81' : '',
+              borderColor: side === 'buy' ? '#0ecb81' : '',
+              borderTopLeftRadius: 4,
+              borderBottomLeftRadius: 4,
             }}
           >
-            BUY
+            Buy {baseCurrency}
           </Radio.Button>
           <Radio.Button
             value="sell"
             style={{
               width: '50%',
               textAlign: 'center',
-              background: side === 'sell' ? '#f6465d' : '',
+              backgroundColor: side === 'sell' ? '#f6465d' : '',
               borderColor: side === 'sell' ? '#f6465d' : '',
+              borderTopRightRadius: 4,
+              borderBottomRightRadius: 4,
             }}
           >
-            SELL
+            Sell {baseCurrency}
           </Radio.Button>
         </Radio.Group>
         <Input
