@@ -373,13 +373,17 @@ const RenderNormal = ({
           <UserInfoTable />
         </Row>
       </Col>
-      <Col flex={'360px'} style={{ height: '100%' }}>
+      <Col flex={'360px'} style={{ borderLeft: '1px solid #252930' }}>
         <Orderbook smallScreen={false} onPrice={onPrice} onSize={onSize} />
         <TradesTable smallScreen={false} />
       </Col>
       <Col
         flex="400px"
-        style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          borderLeft: '1px solid #252930',
+        }}
       >
         <TradeForm setChangeOrderRef={onChangeOrderRef} />
         <StandaloneBalancesDisplay />

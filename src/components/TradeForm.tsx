@@ -62,7 +62,7 @@ const InputContainer = styled.div`
   border-radius: 4px;
   line-height: 40px;
   background-color: rgba(43, 47, 54, 0.9);
-  color: rgb(234, 236, 239);
+  color: #eaecef;
   border: 1px solid rgba(43, 47, 54, 0.8);
 `;
 
@@ -75,7 +75,7 @@ const Tag = styled.div`
 `;
 
 const PriceInput = styled.input`
-  color: rgb(234, 236, 239);
+  color: #eaecef;
   font-size: 14px;
   padding-left: 4px;
   padding-right: 4px;
@@ -101,7 +101,7 @@ const Suffix = styled.div`
   flex-shrink: 0;
   margin: 0 8px;
   font-size: 14px;
-  color: rgb(132, 142, 156);
+  color: #eaecef;
 `;
 
 const SellButton = styled(Button)`
@@ -358,7 +358,12 @@ export default function TradeForm({
 
   return (
     <FloatingElement
-      style={{ display: 'flex', flexDirection: 'column', ...style }}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: '#1e2026',
+        ...style,
+      }}
     >
       <div style={{ flex: 1 }}>
         <Radio.Group
@@ -420,6 +425,7 @@ export default function TradeForm({
             borderTop: '1px solid rgb(37, 41, 48)',
             borderBottom: '1px solid rgb(37, 41, 48)',
             fontSize: 12,
+            color: '#eaecef',
           }}
         >
           {'Post'}
@@ -439,6 +445,7 @@ export default function TradeForm({
         </div>
       </div>
       {side === 'buy' ? (
+        // change to connect wallet
         <BuyButton
           disabled={!price || !baseSize}
           onClick={onSubmit}

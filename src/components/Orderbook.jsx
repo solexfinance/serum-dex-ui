@@ -87,7 +87,13 @@ export default function Orderbook({ smallScreen, depth = 7, onPrice, onSize }) {
   return (
     <FloatingElement
       style={
-        smallScreen ? { flex: 1 } : { height: '500px', overflow: 'hidden' }
+        smallScreen
+          ? { flex: 1 }
+          : {
+              height: '500px',
+              overflow: 'hidden',
+              borderBottom: '1px solid #252930',
+            }
       }
     >
       <Title>Orderbook</Title>

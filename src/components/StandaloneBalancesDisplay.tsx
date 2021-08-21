@@ -40,8 +40,14 @@ const ActionButton = styled(Button)`
   border-width: 0px;
 
   &:hover {
+    background-color: #2b3139;
     color: #eaecef;
+  }
+
+  &:focus,
+  &:active {
     background-color: #474d57;
+    color: #eaecef;
   }
 `;
 
@@ -190,7 +196,19 @@ export default function StandaloneBalancesDisplay() {
   ];
 
   return (
-    <FloatingElement style={{ flex: 1, paddingTop: 10 }}>
+    <FloatingElement style={{ flex: 1 }}>
+      <RowBox align="middle" justify="space-between">
+        <Col style={{ width: 150 }}>
+          <ActionButton block onClick={() => setBaseOrQuote('base')}>
+            Deposit
+          </ActionButton>
+        </Col>
+        <Col style={{ width: 150, marginLeft: 16 }}>
+          <ActionButton block onClick={onSettleFunds}>
+            Settle
+          </ActionButton>
+        </Col>
+      </RowBox>
       {formattedBalances.map(
         ([currency, balances, baseOrQuote, mint], index) => (
           <React.Fragment key={index}>
@@ -223,7 +241,9 @@ export default function StandaloneBalancesDisplay() {
               justify="space-between"
               style={{ paddingBottom: 12 }}
             >
-              <Col>Wallet balance:</Col>
+              <Col>
+                {currency} <span style={{ color: '#848e9c' }}>Available:</span>
+              </Col>
               <Col>{balances && balances.wallet}</Col>
             </RowBox>
             <RowBox
@@ -231,35 +251,21 @@ export default function StandaloneBalancesDisplay() {
               justify="space-between"
               style={{ paddingBottom: 12 }}
             >
-              <Col>Unsettled balance:</Col>
+              <Col>
+                {currency} <span style={{ color: '#848e9c' }}>Unsettled:</span>
+              </Col>
               <Col>{balances && balances.unsettled}</Col>
             </RowBox>
-            <RowBox align="middle" justify="space-around">
-              <Col style={{ width: 150 }}>
-                <ActionButton
-                  block
-                  size="large"
-                  onClick={() => setBaseOrQuote(baseOrQuote)}
-                >
-                  Deposit
-                </ActionButton>
-              </Col>
-              <Col style={{ width: 150 }}>
-                <ActionButton block size="large" onClick={onSettleFunds}>
-                  Settle
-                </ActionButton>
-              </Col>
-            </RowBox>
-            <Tip>
-              All deposits go to your{' '}
-              <Link external to={providerUrl}>
-                {providerName}
-              </Link>{' '}
-              wallet
-            </Tip>
           </React.Fragment>
         ),
       )}
+      <Tip>
+        All deposits go to your{' '}
+        <Link external to={providerUrl}>
+          {providerName}
+        </Link>{' '}
+        wallet
+      </Tip>
       <DepositDialog
         baseOrQuote={baseOrQuote}
         onClose={() => setBaseOrQuote('')}
