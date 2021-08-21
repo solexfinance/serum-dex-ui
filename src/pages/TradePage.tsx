@@ -371,7 +371,7 @@ const RenderNormal = ({
         <Row style={{ height: '100%', borderBottom: '1px solid #252930' }}>
           {/* <TVChartContainer /> */}
         </Row>
-        <Row style={{ height: '70%' }}>
+        <Row style={{ height: '60%' }}>
           <UserInfoTable />
         </Row>
       </Col>

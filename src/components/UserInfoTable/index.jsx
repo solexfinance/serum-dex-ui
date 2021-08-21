@@ -12,8 +12,8 @@ const { TabPane } = Tabs;
 export default function Index() {
   const { market } = useMarket();
   return (
-    <FloatingElement style={{ flex: 1, paddingTop: 20 }}>
-      <Tabs defaultActiveKey="orders">
+    <FloatingElement style={{ flex: 1, paddingTop: 4 }}>
+      <Tabs defaultActiveKey="orders" tabBarStyle={{ borderBottom: 'unset' }}>
         <TabPane tab="Open Orders" key="orders">
           <OpenOrdersTab />
         </TabPane>

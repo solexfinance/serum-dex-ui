@@ -78,6 +78,18 @@ input[type=number]:focus::-webkit-inner-spin-button {
 .ant-modal-content {
   background-color: #1e2026;
 }
+.ant-tabs {
+  color: #848e9c;
+}
+.ant-tabs-tab:hover {
+  color: #00fdbb;
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  font-weight: 600;
+}
+.ant-tabs-ink-bar {
+  display: none;
+}
 
 @-webkit-keyframes highlight {
   from { background-color: #00fdbb;}
