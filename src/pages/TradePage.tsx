@@ -317,7 +317,7 @@ const RenderNormal = ({
         flexWrap: 'nowrap',
       }}
     >
-      <Col flex="auto" style={{ height: '50vh' }}>
+      <Col flex="auto" style={{ height: '60vh' }}>
         <Row
           align="middle"
           style={{
@@ -368,7 +368,9 @@ const RenderNormal = ({
             </React.Fragment>
           )}
         </Row>
-        <Row style={{ height: '100%' }}>{/* <TVChartContainer /> */}</Row>
+        <Row style={{ height: '100%', borderBottom: '1px solid #252930' }}>
+          {/* <TVChartContainer /> */}
+        </Row>
         <Row style={{ height: '70%' }}>
           <UserInfoTable />
         </Row>
