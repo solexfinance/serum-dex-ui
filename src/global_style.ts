@@ -46,9 +46,6 @@ input[type=number]:focus::-webkit-inner-spin-button {
 .ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open)  {
   border: 2px solid #00fdbb; 
 }
-.ant-table-tbody > tr.ant-table-row:hover > td {
-  background: #273043;
-}
 .ant-table-tbody > tr > td {
   border-bottom: 8px solid #161a1e;
 }
@@ -64,7 +61,7 @@ input[type=number]:focus::-webkit-inner-spin-button {
   .ant-table {
     background: #1e2026;
   }
-  .ant-table-tbody > tr.ant-table-placeholder:hover > td {
+  .ant-table-tbody > tr.ant-table-placeholder:hover > td, .ant-table-tbody > tr.ant-table-row:hover > td { {
     background: #111417;
   } 
   .ant-table-thead > tr > th {
@@ -78,17 +75,8 @@ input[type=number]:focus::-webkit-inner-spin-button {
 .ant-modal-content {
   background-color: #1e2026;
 }
-.ant-tabs {
-  color: #848e9c;
-}
-.ant-tabs-tab:hover {
-  color: #00fdbb;
-}
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   font-weight: 600;
-}
-.ant-tabs-ink-bar {
-  display: none;
 }
 
 @-webkit-keyframes highlight {
